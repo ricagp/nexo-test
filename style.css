@@ -24,7 +24,7 @@ body {
 }
 
 .container {
-    max-width: 1200px;
+    max-width: 1100px;
     margin: 0 auto;
     padding: 0 20px;
 }
@@ -37,7 +37,7 @@ a {
 /* --- Cabecera y Navegación --- */
 .main-header {
     background: var(--blanco);
-    padding: 10px 0;
+    padding: 15px 0;
     border-bottom: 1px solid #eee;
     position: sticky;
     top: 0;
@@ -51,10 +51,9 @@ a {
 }
 
 .logo a {
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     font-weight: 700;
     color: var(--azul-nexo);
-    letter-spacing: -0.5px;
 }
 
 .logo .logo-plataforma {
@@ -80,7 +79,6 @@ a {
     color: var(--azul-nexo);
 }
 
-/* Estilo para el botón Hazte Socio en el menú */
 .btn-socio {
     background-color: var(--azul-nexo);
     color: white !important;
@@ -89,30 +87,71 @@ a {
     font-weight: 700 !important;
 }
 
-.btn-socio:hover {
-    background-color: var(--azul-oscuro);
+/* --- Estilos de Contenido --- */
+.page-content {
+    padding: 60px 0;
 }
 
-/* --- Hero Section --- */
-.hero {
-    padding: 80px 0;
-    background: linear-gradient(135deg, var(--azul-nexo) 0%, var(--azul-oscuro) 100%);
-    color: var(--blanco);
-    text-align: center;
+.intro-text {
+    margin-bottom: 50px;
 }
 
-.hero h1 {
-    font-size: 3rem;
-    margin-bottom: 20px;
+/* --- LISTA DEL DECÁLOGO (Estilo Círculos) --- */
+.decalogo-lista {
+    max-width: 850px;
+    margin: 0 auto;
 }
 
-.hero-btns {
+.item-decalogo {
     display: flex;
-    justify-content: center;
-    gap: 15px;
-    margin-top: 30px;
+    gap: 25px;
+    margin-bottom: 40px;
+    align-items: flex-start;
 }
 
-.btn-primary, .btn-secondary {
-    padding: 12px 28px;
-    border-radius:
+.num-wrapper span {
+    background-color: var(--azul-nexo);
+    color: white;
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-weight: 800;
+    font-size: 1.2rem;
+    flex-shrink: 0; /* Evita que el círculo se deforme */
+    box-shadow: 0 4px 6px rgba(0,86,179,0.2);
+}
+
+.texto-wrapper h3 {
+    color: var(--azul-oscuro);
+    margin-bottom: 10px;
+    font-size: 1.5rem;
+    line-height: 1.2;
+}
+
+.texto-wrapper p {
+    line-height: 1.8;
+    color: #444;
+    font-size: 1.05rem;
+}
+
+/* --- Footer --- */
+footer {
+    background: #1a1a1a;
+    color: #aeaeae;
+    padding: 40px 0;
+    margin-top: 60px;
+}
+
+/* --- Responsividad --- */
+@media (max-width: 992px) {
+    .main-nav ul { gap: 8px; }
+    .main-nav ul li a { font-size: 0.75rem; }
+}
+
+@media (max-width: 768px) {
+    .header-container { flex-direction: column; gap: 15px; }
+    .item-decalogo { flex-direction: row; } /* Mantiene el círculo al lado incluso en móvil */
+}
