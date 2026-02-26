@@ -350,3 +350,12 @@ footer {
     color: var(--azul-nexo);
     border-bottom: 2px solid var(--azul-nexo);
 }
+
+.btn-nav {
+    background: var(--azul-nexo);
+    color: var(--blanco) !important;
+    padding: 8px 18px;
+    border-radius: 5px;
+    margin-left: 10px; /* Esto le da aire respecto a 'Blog' */
+    display: inline-block;
+}
