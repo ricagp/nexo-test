@@ -20,10 +20,11 @@ body {
     line-height: 1.6;
     color: var(--gris-texto);
     background-color: var(--blanco);
+    -webkit-font-smoothing: antialiased;
 }
 
 .container {
-    max-width: 1100px;
+    max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
 }
@@ -33,64 +34,68 @@ a {
     transition: 0.3s;
 }
 
-ul {
-    list-style: none;
-}
-
-/* --- Navegación --- */
-header {
+/* --- Cabecera y Navegación --- */
+.main-header {
     background: var(--blanco);
-    padding: 15px 0;
+    padding: 10px 0;
     border-bottom: 1px solid #eee;
     position: sticky;
     top: 0;
     z-index: 1000;
 }
 
-nav {
+.header-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
 .logo a {
-    font-size: 1.4rem;
+    font-size: 1.2rem;
+    font-weight: 700;
     color: var(--azul-nexo);
     letter-spacing: -0.5px;
 }
 
-.logo span {
+.logo .logo-plataforma {
     font-weight: 400;
     color: var(--gris-texto);
-    margin-left: 5px;
 }
 
-.nav-links {
+.main-nav ul {
+    list-style: none;
     display: flex;
+    gap: 12px;
     align-items: center;
-    gap: 25px;
 }
 
-.nav-links a {
-    color: var(--gris-texto);
+.main-nav ul li a {
+    color: var(--azul-oscuro);
     font-weight: 600;
-    font-size: 0.95rem;
+    font-size: 0.85rem;
+    white-space: nowrap;
 }
 
-.nav-links a:hover {
+.main-nav ul li a:hover {
     color: var(--azul-nexo);
 }
 
-.btn-nav {
-    background: var(--azul-nexo);
-    color: var(--blanco) !important;
-    padding: 10px 20px;
-    border-radius: 5px;
+/* Estilo para el botón Hazte Socio en el menú */
+.btn-socio {
+    background-color: var(--azul-nexo);
+    color: white !important;
+    padding: 8px 16px;
+    border-radius: 4px;
+    font-weight: 700 !important;
+}
+
+.btn-socio:hover {
+    background-color: var(--azul-oscuro);
 }
 
 /* --- Hero Section --- */
 .hero {
-    padding: 100px 0;
+    padding: 80px 0;
     background: linear-gradient(135deg, var(--azul-nexo) 0%, var(--azul-oscuro) 100%);
     color: var(--blanco);
     text-align: center;
@@ -99,268 +104,15 @@ nav {
 .hero h1 {
     font-size: 3rem;
     margin-bottom: 20px;
-    font-weight: 700;
-}
-
-.hero p {
-    font-size: 1.2rem;
-    max-width: 750px;
-    margin: 0 auto 35px;
-    opacity: 0.9;
 }
 
 .hero-btns {
     display: flex;
     justify-content: center;
     gap: 15px;
+    margin-top: 30px;
 }
 
 .btn-primary, .btn-secondary {
     padding: 12px 28px;
-    border-radius: 5px;
-    font-weight: 700;
-    font-size: 1rem;
-}
-
-.btn-primary {
-    background: var(--blanco);
-    color: var(--azul-nexo);
-}
-
-.btn-secondary {
-    border: 2px solid var(--blanco);
-    color: var(--blanco);
-}
-
-/* --- Features Section (Grid de 3 columnas) --- */
-.features {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-    padding: 80px 20px;
-}
-
-.feature-card {
-    text-align: center;
-    padding: 40px 30px;
-    background: var(--gris-fondo);
-    border-radius: 12px;
-    transition: transform 0.3s ease;
-}
-
-.feature-card:hover {
-    transform: translateY(-5px);
-}
-
-.feature-card i {
-    font-size: 2.8rem;
-    color: var(--azul-nexo);
-    margin-bottom: 20px;
-    display: block;
-}
-
-.feature-card h3 {
-    margin-bottom: 15px;
-    color: var(--azul-oscuro);
-}
-
-/* --- Footer --- */
-footer {
-    background: #1a1a1a;
-    color: #aeaeae;
-    padding: 60px 0 30px;
-    margin-top: 40px;
-}
-
-.footer-grid {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    flex-wrap: wrap;
-    gap: 30px;
-    border-bottom: 1px solid #333;
-    padding-bottom: 40px;
-}
-
-.footer-links a {
-    display: block;
-    color: #aeaeae;
-    margin-bottom: 12px;
-    font-size: 0.9rem;
-}
-
-.footer-social i {
-    font-size: 1.5rem;
-    margin-left: 20px;
-    color: var(--blanco);
-}
-
-/* --- Responsividad --- */
-@media (max-width: 768px) {
-    .nav-links { display: none; }
-    .hero h1 { font-size: 2.2rem; }
-    .footer-grid { flex-direction: column; text-align: center; align-items: center; }
-}
-
-
-/* --- Estilos para Páginas de Contenido --- */
-.page-content {
-    padding: 60px 20px;
-}
-
-.intro-text {
-    text-align: center;
-    margin-bottom: 50px;
-}
-
-.intro-text h1 {
-    font-size: 2.5rem;
-    color: var(--azul-oscuro);
-    margin-bottom: 15px;
-}
-
-.lead {
-    font-size: 1.2rem;
-    color: #666;
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-.grid-decalogo {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 40px;
-}
-
-.punto {
-    position: relative;
-    padding-left: 20px;
-    border-left: 4px solid var(--azul-nexo);
-}
-
-.numero {
-    font-size: 0.9rem;
-    font-weight: 700;
-    color: var(--azul-nexo);
-    display: block;
-    margin-bottom: 10px;
-    text-transform: uppercase;
-}
-
-.punto h3 {
-    margin-bottom: 10px;
-    color: var(--azul-oscuro);
-}
-
-
-/* --- Estilo de Decálogo Extenso --- */
-.decalogo-lista {
-    max-width: 850px;
-    margin: 0 auto;
-}
-
-.item-decalogo {
-    display: flex;
-    gap: 30px;
-    margin-bottom: 50px;
-    padding-bottom: 30px;
-    border-bottom: 1px solid #eee;
-}
-
-.item-decalogo:last-child {
-    border-bottom: none;
-}
-
-.num-wrapper {
-    font-size: 2.5rem;
-    font-weight: 800;
-    color: var(--azul-nexo);
-    opacity: 0.2; /* Para que queden de fondo, muy sutiles */
-    margin-right: 20px;
-}
-
-
-.num-wrapper span {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 50px;
-    height: 50px;
-    background-color: var(--azul-nexo);
-    color: white;
-    border-radius: 50%;
-    font-weight: 700;
-    font-size: 1.2rem;
-}
-
-.texto-wrapper h3 {
-    font-size: 1.6rem;
-    color: var(--azul-oscuro);
-    margin-bottom: 12px;
-}
-
-.texto-wrapper p {
-    color: #555;
-    font-size: 1.1rem;
-    line-height: 1.8;
-}
-
-@media (max-width: 600px) {
-    .item-decalogo {
-        flex-direction: column;
-        gap: 15px;
-    }
-}
-
-
-/* --- Estilos específicos para el Decálogo --- */
-.decalogo-lista {
-    max-width: 800px;
-    margin: 40px auto;
-}
-
-.item-decalogo {
-    display: flex;
-    gap: 25px;
-    margin-bottom: 40px;
-    align-items: flex-start;
-}
-
-.num-wrapper span {
-    background-color: var(--azul-nexo);
-    color: white;
-    width: 40px;
-    height: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-    font-weight: bold;
-    flex-shrink: 0;
-}
-
-.texto-wrapper h3 {
-    color: var(--azul-oscuro);
-    margin-bottom: 10px;
-    font-size: 1.4rem;
-}
-
-.texto-wrapper p {
-    line-height: 1.8;
-    color: #444;
-}
-
-/* Para que el enlace activo en el menú resalte */
-.nav-links a.active {
-    color: var(--azul-nexo);
-    border-bottom: 2px solid var(--azul-nexo);
-}
-
-.btn-nav {
-    background: var(--azul-nexo);
-    color: var(--blanco) !important;
-    padding: 8px 18px;
-    border-radius: 5px;
-    margin-left: 10px; /* Esto le da aire respecto a 'Blog' */
-    display: inline-block;
-}
+    border-radius:
