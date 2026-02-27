@@ -20,7 +20,7 @@ a { text-decoration: none; transition: 0.3s; }
 .main-nav ul li a { color: var(--azul-oscuro); font-weight: 600; font-size: 0.85rem; }
 .menu-toggle { display: none; background: none; border: none; font-size: 1.5rem; cursor: pointer; }
 
-/* --- SOLUCIÓN DE IMÁGENES (JUNTA DIRECTIVA) --- */
+/* --- JUNTA DIRECTIVA (Fotos unificadas) --- */
 .team-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -29,30 +29,64 @@ a { text-decoration: none; transition: 0.3s; }
     text-align: center;
 }
 
+/* IMPORTANTE: Este es el marco que recorta la foto */
 .image-wrapper {
     width: 100%;
-    aspect-ratio: 1 / 1; /* Esto fuerza el marco cuadrado */
+    aspect-ratio: 1 / 1; 
     overflow: hidden;
     border-radius: 8px;
     margin-bottom: 15px;
-    background-color: #eee; /* Fondo por si falla la carga */
+    background-color: #f0f0f0;
 }
 
 .image-wrapper img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* RECORTA la foto para llenar el cuadrado sin deformar */
-    object-position: center top; /* Enfoca la parte superior (la cara) */
+    object-fit: cover; /* Recorta para llenar el cuadrado */
+    object-position: center top; 
+}
+
+/* --- FOOTER (Recuperado) --- */
+.main-footer {
+    background-color: #1a1a1a;
+    color: #ffffff;
+    padding: 60px 0 30px;
+    margin-top: 80px;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 40px;
+    margin-bottom: 40px;
+}
+
+.logo-footer { font-size: 1.5rem; font-weight: 800; margin-bottom: 20px; }
+.logo-footer .nexo { color: var(--azul-nexo); }
+
+.footer-column ul { list-style: none; padding: 0; }
+.footer-column ul li { margin-bottom: 12px; }
+.footer-column ul li a { color: #fff; }
+
+.footer-bottom {
+    border-top: 1px solid #333;
+    padding-top: 30px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.8rem;
+    color: #888;
 }
 
 /* --- RESPONSIVIDAD --- */
 @media (max-width: 1024px) {
     .menu-toggle { display: block; }
-    .main-nav { display: none; position: absolute; top: 100%; left: 0; width: 100%; background: white; }
+    .main-nav { display: none; position: absolute; top: 100%; left: 0; width: 100%; background: white; border-bottom: 2px solid var(--azul-nexo); }
     .main-nav.nav-open { display: block; }
     .main-nav ul { flex-direction: column; padding: 20px; }
+    .footer-grid { grid-template-columns: 1fr 1fr; }
 }
 
 @media (max-width: 600px) {
     .team-grid { grid-template-columns: 1fr; }
+    .footer-grid { grid-template-columns: 1fr; text-align: center; }
 }
