@@ -18,6 +18,11 @@ a { text-decoration: none; transition: 0.3s; }
 .logo a { font-size: 1.3rem; font-weight: 700; color: var(--azul-nexo); }
 .main-nav ul { list-style: none; display: flex; gap: 15px; }
 .main-nav ul li a { color: var(--azul-oscuro); font-weight: 600; font-size: 0.85rem; }
+.main-nav ul li a.active {
+    color: var(--azul-nexo);
+    border-bottom: 2px solid var(--azul-nexo);
+    padding-bottom: 5px;
+}
 .menu-toggle { display: none; background: none; border: none; font-size: 1.5rem; cursor: pointer; }
 
 /* --- JUNTA DIRECTIVA (Fotos unificadas) --- */
@@ -58,6 +63,25 @@ a { text-decoration: none; transition: 0.3s; }
     object-fit: cover; 
     object-position: center top; 
 }
+
+
+.member-social {
+    margin-top: 10px;
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+}
+
+.member-social a {
+    color: var(--azul-nexo);
+    font-size: 1.1rem;
+    transition: color 0.3s;
+}
+
+.member-social a:hover {
+    color: var(--azul-oscuro);
+}
+
 
 /* --- FOOTER (Recuperado) --- */
 .main-footer {
@@ -105,13 +129,22 @@ a { text-decoration: none; transition: 0.3s; }
 }
 
 
+/* Ajustes para el nuevo logotipo */
 .logo img {
-    max-height: 45px; /* Ajusta este valor según prefieras el tamaño */
-    vertical-align: middle;
+    height: 40px; /* Controlamos la altura */
+    width: auto;
+    display: block;
     transition: transform 0.3s ease;
 }
 
-.logo a:hover img {
-    transform: scale(1.05); /* Efecto sutil al pasar el ratón */
+/* Alineación vertical con el menú */
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; /* Esto centra el logo y el menú horizontalmente */
+    height: 70px; /* Altura fija para consistencia */
 }
 
+.logo a:hover img {
+    transform: scale(1.02); /* Efecto sutil al pasar el ratón */
+}
