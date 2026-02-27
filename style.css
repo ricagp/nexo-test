@@ -110,13 +110,100 @@ a {
 }
 
 /* --- SECCIÓN DE EQUIPO (Cajita Blanca) --- */
+/* --- SECCIÓN DE EQUIPO (Unificada y Responsiva) --- */
 .team-grid {
     display: grid;
+    /* Rejilla automática: mínimo 250px por foto, máximo lo que quepa */
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 40px;
+    gap: 40px; /* Espacio entre tarjetas */
     text-align: center;
     margin-top: 40px;
 }
+
+.team-member {
+    /* Contenedor de cada miembro para dar estabilidad */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.image-wrapper {
+    position: relative;
+    margin-bottom: 25px;
+    width: 100%; /* Ocupa todo el ancho de la columna */
+    
+    /* --- SOLUCIÓN ARQUITECTÓNICA --- */
+    /* 1. Forzamos a que el contenedor sea SIEMPRE cuadrado (1:1) */
+    aspect-ratio: 1 / 1; 
+    overflow: hidden; /* Corta lo que sobresalga */
+    border-radius: 8px; /* Esquinas redondeadas en el contenedor */
+}
+
+.image-wrapper img {
+    width: 100%;
+    height: 100%; /* Llena el contenedor cuadrado */
+    
+    /* --- SOLUCIÓN DE IMAGEN --- */
+    /* 2. 'cover' hace que la foto se estire/encoja para cubrir el cuadrado 
+       sin deformarse, cortando los bordes sobrantes (como un marco) */
+    object-fit: cover; 
+    
+    /* 3. Centra la parte visible de la foto */
+    object-position: center; 
+    
+    transition: transform 0.3s ease; /* Efecto suave al pasar el ratón */
+}
+
+/* Efecto sutil de zoom al pasar el ratón por la foto */
+.team-member:hover .image-wrapper img {
+    transform: scale(1.05);
+}
+
+/* Estilos de la cajita social (sin cambios, solo para referencia) */
+.social-box {
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: white;
+    padding: 10px 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    display: flex;
+    gap: 15px;
+    z-index: 10;
+}
+
+.social-box a {
+    color: var(--azul-nexo);
+    font-size: 1.1rem;
+}
+
+/* Texto debajo de la foto */
+.member-meta {
+    margin-top: 10px;
+}
+
+.member-meta h3 {
+    font-size: 1.2rem;
+    color: var(--azul-oscuro);
+    margin-bottom: 5px;
+}
+
+.member-meta p {
+    font-size: 0.85rem;
+    color: #666;
+    line-height: 1.4;
+}
+
+/* --- RESPONSIVIDAD PARA MÓVILES --- */
+@media (max-width: 600px) {
+    .team-grid {
+        grid-template-columns: 1fr; /* Una columna */
+        gap: 60px; /* Más espacio porque la caja social sobresale */
+    }
+}
+
 
 .image-wrapper {
     position: relative;
