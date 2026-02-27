@@ -222,72 +222,52 @@ a {
 
 
 /* --- SECCIÓN DE EQUIPO --- */
+/* --- SECCIÓN DE EQUIPO (Versión Cajita Blanca) --- */
 .team-grid {
     display: grid;
-    /* 3 columnas en pantallas grandes, se ajusta solo si son menos */
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 20px;
-    margin-bottom: 50px;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+    text-align: center;
 }
 
-.team-member {
+.image-wrapper {
     position: relative;
-    overflow: hidden;
-    border-radius: 8px;
-    height: 380px; /* Altura fija para uniformidad */
+    margin-bottom: 25px;
 }
 
-.team-member img {
+.image-wrapper img {
     width: 100%;
-    height: 100%;
-    object-fit: cover; /* Ajusta la foto sin deformarla */
-    transition: transform 0.5s ease;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 8px;
 }
 
-.team-member:hover img {
-    transform: scale(1.05); /* Efecto zoom suave al pasar el ratón */
-}
-
-/* Capa de información sobre la foto */
-.member-info {
+.social-box {
     position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    padding: 20px;
-    /* Degradado oscuro para que el texto blanco se vea perfecto */
-    background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
-    color: white;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: white;
+    padding: 10px 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
+    gap: 15px;
 }
 
-.member-text h3 {
-    font-size: 1.2rem;
-    margin: 0;
-    font-weight: 700;
-}
-
-.member-text p {
-    font-size: 0.9rem;
-    margin: 5px 0 0;
-    opacity: 0.9;
-}
-
-.member-social {
-    display: flex;
-    gap: 10px;
-}
-
-.member-social a {
-    color: white;
-    font-size: 1.2rem;
-    transition: color 0.3s;
-}
-
-.member-social a:hover {
+.social-box a {
     color: var(--azul-nexo);
+    font-size: 1.1rem;
+}
+
+.member-meta h3 {
+    font-size: 1.2rem;
+    color: var(--azul-oscuro);
+}
+
+.member-meta p {
+    font-size: 0.85rem;
+    color: #666;
 }
 
 /* Ajuste para móviles */
@@ -298,4 +278,17 @@ a {
     .team-member {
         height: 450px; /* Un poco más alta en móvil para mejor visibilidad */
     }
+}
+
+/* Color para el enlace de la página actual */
+.main-nav ul li a.active {
+    color: var(--azul-nexo) !important; /* El color azul de la marca */
+    border-bottom: 2px solid var(--azul-nexo);
+    padding-bottom: 5px;
+}
+
+/* Evitar que el botón de "Hazte socio" pierda su estilo de botón si está activo */
+.main-nav ul li a.btn-socio.active {
+    border-bottom: none;
+    background-color: var(--azul-oscuro); /* Un tono más oscuro para indicar que estás ahí */
 }
