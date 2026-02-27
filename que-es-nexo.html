@@ -7,17 +7,16 @@
             </a>
         </div>
 
-        <button class="menu-toggle" aria-label="Abrir menú">
+        <button class="menu-toggle" id="mobile-menu-btn" aria-label="Abrir menú">
             <i class="fas fa-bars"></i>
         </button>
         
-        <nav class="main-nav">
+        <nav class="main-nav" id="main-navigation">
             <ul>
                 <li><a href="index.html">Portada</a></li>
                 <li><a href="que-es-nexo.html">Qué es Nexo</a></li>
                 <li><a href="quienes-somos.html">Quiénes somos</a></li>
-                <li><a href="hazte-socio.html">Hazte socio</a></li>
-                <li><a href="decalogo.html">Decálogo</a></li>
+                <li><a href="hazte-socio.html">Hazte socio</a></li> <li><a href="decalogo.html">Decálogo</a></li>
                 <li><a href="agora-nexo.html">Ágora Nexo</a></li>
                 <li><a href="blog-del-asociado.html">Blog del asociado</a></li>
                 <li><a href="prensa.html">Prensa</a></li>
@@ -25,32 +24,46 @@
             </ul>
         </nav>
     </div>
-</header>
 
-<script>
-    document.addEventListener("DOMContentLoaded", function() {
-        // --- LÓGICA DE PÁGINA ACTIVA ---
-        let path = decodeURIComponent(window.location.pathname).split("/").pop();
-        if (path === "" || path === "nexo-test") path = "index.html";
-        
-        const navLinks = document.querySelectorAll(".main-nav ul li a");
-        navLinks.forEach(link => {
-            if (link.getAttribute("href") === path) link.classList.add("active");
-        });
+    <script>
+    (function() {
+        const initMenu = () => {
+            const btn = document.getElementById('mobile-menu-btn');
+            const nav = document.getElementById('main-navigation');
+            
+            if (btn && nav) {
+                btn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    nav.classList.toggle('nav-open');
+                    const icon = btn.querySelector('i');
+                    if(nav.classList.contains('nav-open')) {
+                        icon.classList.replace('fa-bars', 'fa-times');
+                    } else {
+                        icon.classList.replace('fa-times', 'fa-bars');
+                    }
+                });
+            }
 
-        // --- LÓGICA DEL MENÚ HAMBURGUESA ---
-        const menuToggle = document.querySelector(".menu-toggle");
-        const mainNav = document.querySelector(".main-nav");
+            // Lógica de página activa (robusta para GitHub Pages)
+            let path = window.location.pathname.split("/").pop() || "index.html";
+            // Si la ruta termina en / (raíz), forzamos index.html
+            if (window.location.pathname.endsWith('/')) path = "index.html";
 
-        menuToggle.addEventListener("click", function() {
-            mainNav.classList.toggle("nav-open");
-            // Cambiar el icono de barras a una X al abrir
-            const icon = menuToggle.querySelector("i");
-            icon.classList.toggle("fa-bars");
-            icon.classList.toggle("fa-times");
-        });
-    });
-</script><section class="page-header-image" style="background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('img/cabecera-decalogo.jpg'); background-size: cover; background-position: center; height: 250px; display: flex; flex-direction: column; align-items: center; justify-content: center; color: white; text-align: center;">
+            document.querySelectorAll(".main-nav a").forEach(link => {
+                if (link.getAttribute("href") === path) {
+                    link.classList.add("active");
+                }
+            });
+        };
+
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initMenu);
+        } else {
+            initMenu();
+        }
+    })();
+    </script>
+</header><section class="page-header-image" style="background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('img/cabecera-decalogo.jpg'); background-size: cover; background-position: center; height: 250px; display: flex; flex-direction: column; align-items: center; justify-content: center; color: white; text-align: center;">
     <h1 style="font-size: 3rem; margin-bottom: 10px;">Qué es Nexo</h1>
     <p style="font-size: 1.2rem; max-width: 600px;">Una iniciativa innovadora en el ámbito de la política.</p>
 </section>
