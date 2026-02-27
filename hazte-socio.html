@@ -35,24 +35,27 @@
     </div>
     <script>
     document.addEventListener("DOMContentLoaded", function() {
-        // 1. Obtener la URL actual (ej: "decalogo.html")
-        const currentPath = window.location.pathname.split("/").pop();
+        // 1. Obtenemos la ruta limpia
+        let currentPath = window.location.pathname.split("/").pop();
         
-        // 2. Seleccionar todos los enlaces del menú
+        // 2. Si la ruta es "/" o vacía (como en la raíz de GitHub Pages), es index.html
+        if (currentPath === "" || currentPath === "nexo-test") {
+            currentPath = "index.html";
+        }
+        
+        // 3. Seleccionar todos los enlaces del menú
         const navLinks = document.querySelectorAll(".main-nav ul li a");
 
         navLinks.forEach(link => {
-            // 3. Obtener el atributo href del enlace
-            const linkPath = link.getAttribute("href");
+            const linkHref = link.getAttribute("href");
 
-            // 4. Comparar y añadir la clase 'active' si coinciden
-            // También manejamos el caso de la raíz (index.html)
-            if (currentPath === linkPath || (currentPath === "" && linkPath === "index.html")) {
+            // 4. Si el href coincide con el path actual, iluminamos
+            if (currentPath === linkHref) {
                 link.classList.add("active");
             }
         });
     });
-    </script>
+</script>
 </header><section class="page-header-image" style="background: linear-gradient(rgba(0,59,122,0.8), rgba(0,59,122,0.8)), url('img/cabecera-socio.jpg'); background-size: cover; background-position: center; height: 300px; display: flex; flex-direction: column; align-items: center; justify-content: center; color: white; text-align: center;">
     <h1 style="font-size: 3.5rem; margin-bottom: 10px;">Únete a Nexo</h1>
     <p style="font-size: 1.3rem; max-width: 700px; font-weight: 300;">Forma parte del cambio que España necesita. Tu compromiso es nuestro motor.</p>
