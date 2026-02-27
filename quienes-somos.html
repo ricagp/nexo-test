@@ -24,7 +24,7 @@
                 <li><a href="index.html">Portada</a></li>
                 <li><a href="que-es-nexo.html">Qué es Nexo</a></li>
                 <li><a href="quienes-somos.html">Quiénes somos</a></li>
-                <li><a href="hazte-socio.html" class="btn-socio">Hazte socio</a></li>
+                <li><a href="hazte-socio.html">Hazte socio</a></li>
                 <li><a href="decalogo.html">Decálogo</a></li>
                 <li><a href="agora-nexo.html">Ágora Nexo</a></li>
                 <li><a href="blog-del-asociado.html">Blog del asociado</a></li>
@@ -34,28 +34,27 @@
         </nav>
     </div>
     <script>
-    document.addEventListener("DOMContentLoaded", function() {
-        // 1. Obtenemos la ruta limpia
-        let currentPath = window.location.pathname.split("/").pop();
-        
-        // 2. Si la ruta es "/" o vacía (como en la raíz de GitHub Pages), es index.html
-        if (currentPath === "" || currentPath === "nexo-test") {
-            currentPath = "index.html";
-        }
-        
-        // 3. Seleccionar todos los enlaces del menú
-        const navLinks = document.querySelectorAll(".main-nav ul li a");
+        document.addEventListener("DOMContentLoaded", function() {
+            // Obtenemos la URL y la decodificamos por si tiene tildes o caracteres raros
+            let path = decodeURIComponent(window.location.pathname).split("/").pop();
+            
+            if (path === "" || path === "nexo-test") path = "index.html";
+            
+            console.log("Ruta limpia detectada:", path);
 
-        navLinks.forEach(link => {
-            const linkHref = link.getAttribute("href");
+            const navLinks = document.querySelectorAll(".main-nav ul li a");
 
-            // 4. Si el href coincide con el path actual, iluminamos
-            if (currentPath === linkHref) {
-                link.classList.add("active");
-            }
+            navLinks.forEach(link => {
+                const href = link.getAttribute("href");
+                // Quitamos la clase active de todos primero por seguridad
+                link.classList.remove("active");
+
+                if (path === href) {
+                    link.classList.add("active");
+                }
+            });
         });
-    });
-</script>
+    </script>
 </header><section class="page-header-image" style="background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('img/cabecera-quienes.jpg'); background-size: cover; background-position: center; height: 250px; display: flex; flex-direction: column; align-items: center; justify-content: center; color: white; text-align: center;">
     <h1 style="font-size: 3rem; margin-bottom: 10px;">Quiénes somos</h1>
     <p style="font-size: 1.2rem; max-width: 600px;">Personas unidas por principios democráticos y reformistas</p>
