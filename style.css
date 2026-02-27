@@ -87,147 +87,35 @@ a {
     font-weight: 700 !important;
 }
 
-/* --- Estilos de Contenido --- */
-.page-content {
-    padding: 60px 0;
+/* --- Estado Activo --- */
+.main-nav ul li a.active {
+    color: var(--azul-nexo) !important;
+    border-bottom: 2px solid var(--azul-nexo);
+    padding-bottom: 5px;
 }
 
-.intro-text {
-    margin-bottom: 50px;
+.main-nav ul li a.btn-socio.active {
+    border-bottom: none;
+    background-color: var(--azul-oscuro);
 }
 
-/* --- LISTA DEL DECÁLOGO (Estilo Círculos) --- */
-.decalogo-lista {
-    max-width: 850px;
-    margin: 0 auto;
-}
-
-.item-decalogo {
-    display: flex;
-    gap: 25px;
-    margin-bottom: 40px;
-    align-items: flex-start;
-}
-
-.num-wrapper span {
-    background-color: var(--azul-nexo);
-    color: white;
-    width: 45px;
-    height: 45px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-    font-weight: 800;
-    font-size: 1.2rem;
-    flex-shrink: 0; /* Evita que el círculo se deforme */
-    box-shadow: 0 4px 6px rgba(0,86,179,0.2);
-}
-
-.texto-wrapper h3 {
+/* --- Botón Hamburguesa --- */
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
     color: var(--azul-oscuro);
-    margin-bottom: 10px;
     font-size: 1.5rem;
-    line-height: 1.2;
+    cursor: pointer;
 }
 
-.texto-wrapper p {
-    line-height: 1.8;
-    color: #444;
-    font-size: 1.05rem;
-}
-
-/* --- Footer --- */
-/* --- FOOTER OFICIAL --- */
-.main-footer {
-    background-color: #1a1a1a;
-    color: #ffffff;
-    padding: 60px 0 30px;
-    margin-top: 80px;
-    font-size: 0.9rem;
-}
-
-.footer-grid {
-    display: grid;
-    grid-template-columns: 2fr 1fr 1fr 1fr;
-    gap: 40px;
-    margin-bottom: 40px;
-}
-
-.logo-footer {
-    font-size: 1.5rem;
-    font-weight: 800;
-    margin-bottom: 20px;
-}
-
-.logo-footer .nexo { color: var(--azul-nexo); }
-.logo-footer .plataforma { color: #fff; font-weight: 400; }
-
-.footer-contact-info {
-    line-height: 2;
-    color: #bbb;
-}
-
-.footer-column ul {
-    list-style: none;
-    padding: 0;
-}
-
-.footer-column ul li {
-    margin-bottom: 12px;
-}
-
-.footer-column ul li a {
-    color: #fff;
-    transition: color 0.3s;
-}
-
-.footer-column ul li a:hover {
-    color: var(--azul-nexo);
-}
-
-/* Línea inferior de Copyright */
-.footer-bottom {
-    border-top: 1px solid #333;
-    padding-top: 30px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    color: #888;
-    font-size: 0.8rem;
-}
-
-.legal-links a {
-    color: #888;
-    margin: 0 5px;
-}
-
-.legal-links a:hover {
-    color: #fff;
-}
-
-/* Responsividad para móviles */
-@media (max-width: 768px) {
-    .footer-grid {
-        grid-template-columns: 1fr;
-        text-align: center;
-    }
-    .footer-bottom {
-        flex-direction: column;
-        gap: 15px;
-        text-align: center;
-    }
-}
-
-
-
-/* --- SECCIÓN DE EQUIPO --- */
-/* --- SECCIÓN DE EQUIPO (Versión Cajita Blanca) --- */
+/* --- SECCIÓN DE EQUIPO (Cajita Blanca) --- */
 .team-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 40px;
     text-align: center;
+    margin-top: 40px;
 }
 
 .image-wrapper {
@@ -263,6 +151,7 @@ a {
 .member-meta h3 {
     font-size: 1.2rem;
     color: var(--azul-oscuro);
+    margin-bottom: 5px;
 }
 
 .member-meta p {
@@ -270,49 +159,93 @@ a {
     color: #666;
 }
 
-/* Ajuste para móviles */
-@media (max-width: 600px) {
-    .team-grid {
-        grid-template-columns: 1fr; /* Una columna total */
-    }
-    .team-member {
-        height: 450px; /* Un poco más alta en móvil para mejor visibilidad */
-    }
+/* --- DECÁLOGO --- */
+.decalogo-lista {
+    max-width: 850px;
+    margin: 0 auto;
 }
 
-/* Color para el enlace de la página actual */
-.main-nav ul li a.active {
-    color: var(--azul-nexo) !important; /* El color azul de la marca */
-    border-bottom: 2px solid var(--azul-nexo);
-    padding-bottom: 5px;
+.item-decalogo {
+    display: flex;
+    gap: 25px;
+    margin-bottom: 40px;
+    align-items: flex-start;
 }
 
-/* Evitar que el botón de "Hazte socio" pierda su estilo de botón si está activo */
-.main-nav ul li a.btn-socio.active {
-    border-bottom: none;
-    background-color: var(--azul-oscuro); /* Un tono más oscuro para indicar que estás ahí */
+.num-wrapper span {
+    background-color: var(--azul-nexo);
+    color: white;
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-weight: 800;
+    font-size: 1.2rem;
+    flex-shrink: 0;
+    box-shadow: 0 4px 6px rgba(0,86,179,0.2);
 }
 
-/* --- RESPONSIVE MENU --- */
-
-/* Ocultar botón hamburguesa por defecto (escritorio) */
-.menu-toggle {
-    display: none;
-    background: none;
-    border: none;
+.texto-wrapper h3 {
     color: var(--azul-oscuro);
+    margin-bottom: 10px;
     font-size: 1.5rem;
-    cursor: pointer;
 }
 
-/* Estilos para móviles (Pantallas menores a 992px) */
+/* --- FOOTER --- */
+.main-footer {
+    background-color: #1a1a1a;
+    color: #ffffff;
+    padding: 60px 0 30px;
+    margin-top: 80px;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 40px;
+    margin-bottom: 40px;
+}
+
+.logo-footer {
+    font-size: 1.5rem;
+    font-weight: 800;
+    margin-bottom: 20px;
+}
+
+.logo-footer .nexo { color: var(--azul-nexo); }
+
+.footer-column ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-column ul li {
+    margin-bottom: 12px;
+}
+
+.footer-column ul li a {
+    color: #fff;
+}
+
+.footer-bottom {
+    border-top: 1px solid #333;
+    padding-top: 30px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.8rem;
+    color: #888;
+}
+
+/* --- MEDIA QUERIES (RESPONSIVIDAD) --- */
+
+/* Tablets y Móviles grandes */
 @media (max-width: 992px) {
-    .menu-toggle {
-        display: block; /* Aparece la hamburguesa */
-    }
+    .menu-toggle { display: block; }
 
     .main-nav {
-        display: none; /* Ocultamos el menú normal */
+        display: none;
         position: absolute;
         top: 100%;
         left: 0;
@@ -323,38 +256,8 @@ a {
         z-index: 999;
     }
 
-    /* Cuando el JS añade esta clase, el menú aparece */
-    .main-nav.nav-open {
-        display: block;
-    }
+    .main-nav.nav-open { display: block; }
 
     .main-nav ul {
-        flex-direction: column; /* Menú en vertical */
-        padding: 20px;
-        gap: 0;
-    }
-
-    .main-nav ul li {
-        width: 100%;
-        border-bottom: 1px solid #eee;
-    }
-
-    .main-nav ul li a {
-        display: block;
-        padding: 15px 0;
-        font-size: 1rem;
-        width: 100%;
-    }
-
-    .main-nav ul li a.active {
-        border-bottom: none !important;
-        padding-left: 10px;
-        border-left: 4px solid var(--azul-nexo);
-    }
-
-    .btn-socio {
-        text-align: center;
-        margin-top: 10px;
-        margin-bottom: 10px;
-    }
-}
+        flex-direction: column;
+        padding:
